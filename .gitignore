@@ -1,15 +1,20 @@
 # Local .terraform directories
 **/.terraform/*
 
-#  Ignore variables files
- *.auto.tfvars
+# Ignore variables files
+*.tfvars
+*.auto.tfvars
 
-#  Ignore override files
- *.tfoverride
+# Ignore state files
+*.tfstate
+*.tfstate.*
 
-#  Ignore environment-specific files
- .envrc
+# Ignore override files
+*.tfoverride
 
-#  Ignore CLI configuration files
- .terraformrc
- terraform.rc
+# Ignore environment-specific files
+.envrc
+
+# Ignore CLI configuration files
+.terraformrc
+terraform.rc
