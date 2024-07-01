@@ -23,7 +23,7 @@ jobs:
         with:
           role-to-assume: ${{ secrets.AWS_CREDENTIALS_ROLE }}
           aws-region: us-east-2
-
+          
       - name: Setup Terraform
         uses: hashicorp/setup-terraform@v3
         with: 
