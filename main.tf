@@ -8,6 +8,27 @@ terraform {
 }
 
 provider "aws" {
-  region = "us-east-2"
-  # profile = "gcrozariol"
+  region  = "us-east-2"
+  profile = "gcrozariol"
+}
+
+resource "aws_s3_bucket" "terraform-state" {
+  bucket        = "docker-iac"
+  force_destroy = true
+
+  lifecycle {
+    prevent_destroy = true
+  }
+
+  tags = {
+    IAC = "True"
+  }
+}
+
+resource "aws_s3_bucket_versioning" "terraform-state" {
+  bucket = "docker-iac"
+
+  versioning_configuration {
+    status = "Enabled"
+  }
 }
