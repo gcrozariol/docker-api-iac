@@ -36,6 +36,28 @@ resource "aws_iam_role" "terraform-role" {
     ]
   })
 
+  inline_policy {
+    name = "terraform-permission"
+
+    policy = jsonencode({
+      Version : "2012-10-17",
+      Statement : [
+        {
+          Sid : "Statement1"
+          Effect : "Allow",
+          Resource : "*",
+          Action : "ecr:*"
+        },
+        {
+          Sid : "Statement2"
+          Effect : "Allow",
+          Resource : "*",
+          Action : "iam:*"
+        },
+      ]
+    })
+  }
+
   tags = {
     IAC = "True"
   }
